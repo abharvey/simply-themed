@@ -1,19 +1,38 @@
 {
-  "name": "styled-breakpoints",
-  "version": "1.0.0",
-  "description": "Using a theme object to auto build theme functions across breakpoints",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abharvey/styled-breakpoints.git"
-  },
-  "author": "Alex Harvey <aharvey@prontoforms.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abharvey/styled-breakpoints/issues"
-  },
-  "homepage": "https://github.com/abharvey/styled-breakpoints#readme"
+    "name": "styled-breakpoints",
+    "version": "1.0.0",
+    "description": "Using a theme object to auto build theme functions across breakpoints",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abharvey/styled-breakpoints.git"
+    },
+    "author": "Alex Harvey <aharvey@prontoforms.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/abharvey/styled-breakpoints/issues"
+    },
+    "homepage": "https://github.com/abharvey/styled-breakpoints#readme",
+    "devDependencies": {
+        "babel": "^6.23.0",
+        "babel-core": "^6.26.3",
+        "babel-jest": "^23.6.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-loader": "^7.1.2",
+        "jest": "^23.6.0",
+        "react-dom": "^16.7.0-alpha.2"
+    },
+    "dependencies": {
+        "react": "^16.7.0-alpha.2",
+        "styled-components": "^4.1.1"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.jsx?$": "babel-jest"
+        }
+    }
 }
