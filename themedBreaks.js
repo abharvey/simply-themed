@@ -70,16 +70,16 @@ const weaveCSS = (cssStrings, cssArgs) => {
 const buildBreakPointSizeMap = (theme, sizeArgs) => {
     const breakPoints = Object.keys(theme);
 
-    return sizes.reduce((breakPointSizeMap, size) => {
+    return breakPoints.reduce((breakPointSizeMap, size) => {
         breakPointSizeMap[size] = sizeArgs.map((sizeArg) => spaceMap[size][sizeArg]);
         return breakPointSizeMap;
     }, {});
 };
 
-export const spacing = (theme) => (cssStrings, ...sizeArgs) => {
-    const breakPointSizeMap = buildBreakPointSizeMap(sizeArgs);
+export const spacing = (theme, subTheme) => (cssStrings, ...cssArgs) => {
+    const breakPointSizeMap = buildBreakPointSizeMap(theme, cssArgs);
 
-    const
+    // const single
 
     return css`
         ${breakpoints.small`

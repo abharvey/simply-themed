@@ -1,0 +1,19 @@
+{
+  "name": "styled-breakpoints",
+  "version": "1.0.0",
+  "description": "Using a theme object to auto build theme functions across breakpoints",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abharvey/styled-breakpoints.git"
+  },
+  "author": "Alex Harvey <aharvey@prontoforms.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abharvey/styled-breakpoints/issues"
+  },
+  "homepage": "https://github.com/abharvey/styled-breakpoints#readme"
+}
