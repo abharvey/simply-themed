@@ -10,7 +10,7 @@
         "type": "git",
         "url": "git+https://github.com/abharvey/styled-breakpoints.git"
     },
-    "author": "Alex Harvey <aharvey@prontoforms.com>",
+    "author": "Alex Harvey <packages@alexharvey.tech>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/abharvey/styled-breakpoints/issues"

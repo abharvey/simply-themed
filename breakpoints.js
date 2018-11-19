@@ -23,7 +23,7 @@ import { css } from 'styled-components';
  */
 
 // TODO: Work on the naming
-
+// TODO: clean up string duplication
 const buildQuery = ({ min, max }) => {
     if (min && max) {
         return `@media all and (max-width: ${max}px) and (min-width: ${min}px)`
