@@ -1,5 +1,3 @@
-import { css } from 'styled-components';
-
 /**
  * usage:
  * 
@@ -40,14 +38,14 @@ const buildQuery = ({ min, max }) => {
     return '';
 };
 
-const buildQueryFunction = ({ min, max }) => (...args) => css`
+const buildQueryFunction = (cssFunc) => ({ min, max }) => (...args) => cssFunc`
     ${buildQuery({ min, max })} {
-        ${css(...args)}
+        ${cssFunc(...args)}
     }
 `;
 
-const mediaQueryMixin = (breakpointObject) => Object.keys(breakpointObject).reduce((mixin, bp) => {
-    mixin[bp] = buildQueryFunction(breakpointObject[bp]);
+const mediaQueryMixin = (cssFunc) => (breakpointObject) => Object.keys(breakpointObject).reduce((mixin, bp) => {
+    mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
     return mixin;
 }, {});
 

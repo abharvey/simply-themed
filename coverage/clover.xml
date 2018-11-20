@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1542722864072" clover="3.2.0">
+  <project timestamp="1542722864072" name="All files">
+    <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7" elements="27" coveredelements="27" complexity="0" loc="12" ncloc="12" packages="1" files="1" classes="1">
+      <file name="breakpoints.js" path="/mnt/c/dev/abharvey/styled-breakpoints/breakpoints.js">
+        <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="20" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="48" count="20" type="stmt"/>
+        <line num="49" count="20" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>
