@@ -14,7 +14,7 @@ const cleanCSS = (cssString) => {
     return normalized;
 }
 
-describe('mediaQueryMixin', () => {
+describe('mediaQueryMixin works with styled-components', () => {
     let breakPoints, mediaQueries;
 
     beforeEach(() => {
