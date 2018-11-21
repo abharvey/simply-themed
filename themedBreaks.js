@@ -53,7 +53,6 @@
  */
 
 import mediaQueryMixin from './breakpoints';
-import { css } from 'styled-components';
 
 // TODO: work on the naming
 
@@ -64,9 +63,10 @@ const weaveCSS = (cssStrings, cssArgs) => {
         result.push(cssArgs[i], cssStrings[i + 1]);
     }
 
-    return result.reduce((str, arg) => `${str}${arg}`);
+    return result.reduce((str, arg) => `${str}${arg}`, '');
 };
 
+// poc function for doing just one theme (sizing)
 const buildBreakPointSizeMap = (theme, sizeArgs) => {
     const breakPoints = Object.keys(theme);
 
@@ -76,12 +76,14 @@ const buildBreakPointSizeMap = (theme, sizeArgs) => {
     }, {});
 };
 
-export const spacing = (theme, subTheme) => (cssStrings, ...cssArgs) => {
+export default (cssFunc) => (theme) => (cssStrings, ...cssArgs) => {
+
+    // right now theme is breakpoint function map
     const breakPointSizeMap = buildBreakPointSizeMap(theme, cssArgs);
 
     // const single
 
-    return css`
+    return cssFunc`
         ${breakpoints.small`
             ${weaveCSS(cssStrings, breakPointSizeMap.small)}
         `}
