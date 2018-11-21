@@ -107,9 +107,9 @@ export default (cssFunc) => (theme, subThemeKey) => (cssStrings, ...cssArgs) => 
     const breakPointTheme = buildBreakPointThemeMap(theme, subThemeKey, cssArgs);
 
     const css = themeSizes.map(size => {
-        return breakpoints[size]`
+        return cssFunc`${breakpoints[size]`
             ${weaveCSS(cssStrings, breakPointTheme[size])}
-        `.join('\n');
+        `}`;
     });
 
     return cssFunc`${css}`;

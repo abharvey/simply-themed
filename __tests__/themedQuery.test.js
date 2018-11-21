@@ -1,5 +1,11 @@
+import * as emotion from 'emotion';
+import { createSerializer, getStyles } from 'jest-emotion';
+import 'jest-styled-components';
+import eStyled, { css as eCSS } from 'react-emotion';
 import renderer from 'react-test-renderer';
-import styled, { css } from 'styled-components';
+import scStyled, { css as scCSS } from 'styled-components';
+
+// expect.extend(createMatchers(emotion));
 
 import { cleanCSS } from './testUtils';
 import themedQuery from '../themedQuery';
@@ -53,10 +59,10 @@ const theme = {
 };
 
 
-describe('Themed Media Query Function', () => {
+describe('Themed Media Query Function with styled-components', () => {
     let spacingQueries;
     beforeEach(() => {
-        spacingQueries = themedQuery(css)(theme, 'spacing');
+        spacingQueries = themedQuery(scCSS)(theme, 'spacing');
     });
 
     it('should create a query function', () => {
@@ -87,7 +93,7 @@ describe('Themed Media Query Function', () => {
     });
 
     it('should works for different subThemes', () => {
-        const fontQueries = themedQuery(css)(theme, 'font');
+        const fontQueries = themedQuery(scCSS)(theme, 'font');
 
         const mediaQueries =
             fontQueries`
@@ -113,7 +119,47 @@ describe('Themed Media Query Function', () => {
 
     it('should work to create a react component with styled-components', () => {
         const React = require('react');
-        const Test = styled.div`
+        const Test = scStyled.div`
+            ${spacingQueries`
+                margin: ${'large'}px ${'medium'}px;
+            `}
+        `;
+
+        const tree = renderer.create(<Test />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
+});
+
+
+
+describe('Themed Media Query Function works with emotion', () => {
+    expect.addSnapshotSerializer(createSerializer(emotion));
+
+    let spacingQueries;
+    beforeEach(() => {
+        spacingQueries = themedQuery(eCSS)(theme, 'spacing');
+    });
+
+    it('should create a query function', () => {
+        expect(typeof spacingQueries).toBe('function');
+    });
+
+    it('should work to create a css class with emotion', () => {
+        const mediaQueries =
+            spacingQueries`
+                padding: ${'extraSmall'}px ${'large'}px;
+                margin: ${'small'}px ${'extraLarge'}px;
+                width: calc(${'large'}px * 2);
+            `;
+
+        const mq = cleanCSS(mediaQueries);
+
+        expect(getStyles(emotion)).toMatchSnapshot();
+    });
+
+    it('should work to create a react component with emotion components', () => {
+        const React = require('react');
+        const Test = eStyled('div')`
             ${spacingQueries`
                 margin: ${'large'}px ${'medium'}px;
             `}

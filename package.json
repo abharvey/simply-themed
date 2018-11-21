@@ -23,12 +23,14 @@
         "babel-loader": "^7.1.2",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
+        "emotion": "^9.2.12",
         "jest": "^23.6.0",
-        "react-dom": "^16.7.0-alpha.2",
-        "react-test-renderer": "^16.6.3"
-    },
-    "dependencies": {
-        "react": "^16.7.0-alpha.2",
+        "jest-emotion": "^9.2.11",
+        "jest-styled-components": "^6.3.1",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3",
+        "react-emotion": "^9.2.12",
+        "react-test-renderer": "^16.6.3",
         "styled-components": "^4.1.1"
     },
     "jest": {
