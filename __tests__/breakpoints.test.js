@@ -1,18 +1,7 @@
-import mediaQueryMixin from './breakpoints';
+import mediaQueryMixin from '../breakpoints';
 import { css } from 'styled-components';
 
-// Test utility to let you write css readably in tests
-const cleanCSS = (cssString) => {
-    const normalized = cssString
-        .trim()
-        .replace(/\s+{/g, '{')
-        .replace(/:\s+/g, ':')
-        .replace(/:\s+;/g, ':;')
-        .replace(/([;\{\}])/g, '$1  ')
-        .replace(/\s+/g, ' ');
-
-    return normalized;
-}
+import { cleanCSS } from './testUtils';
 
 describe('mediaQueryMixin works with styled-components', () => {
     let breakPoints, mediaQueries;

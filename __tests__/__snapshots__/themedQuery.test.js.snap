@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Themed Media Query Function should work to create a react component css 1`] = `
+<div
+  className="sc-bdVaJa duDNRC"
+/>
+`;

@@ -1,1 +1,1 @@
-#styled-breakpoints
+#themed-breakpoints
