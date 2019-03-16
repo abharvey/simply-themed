@@ -12,6 +12,10 @@ decided to use a JSON structure to define the system of responsive CSS allowing 
 definition and standard CSS-in-JS without extra mental mapping of array variable short hands used in other responsive libraries
 
 ```javascript
+import React from 'react';
+import { css } from 'styled-components';
+import { themed } from 'styled-breakpoints';
+
 const sizeTheme = {
     small: {
         break: { max: 1024 },
@@ -51,6 +55,8 @@ const sizeTheme = {
     }
 };
 
+const theme = themed(css)(sizeTheme);
+
 const StyledDiv = styled.div`
     ${theme`
         padding: ${spacing.small}px ${spacing.medium}px;
@@ -59,15 +65,6 @@ const StyledDiv = styled.div`
     `}
 `;
 
-const ReactComponent = (props) => {
-    return (
-        <ThemeProvider>
-            <StyledDiv>
-                {props.children}
-            </StyledDiv>
-        </ThemeProvider>
-    )
-}
-
+const ReactComponent = (props) => (<StyledDiv>{props.children}</StyledDiv>
  
  ```
