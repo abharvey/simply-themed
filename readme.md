@@ -21,8 +21,8 @@ const sizeTheme = {
             large: 20,
         },
         font: {
-            small: 1.25rem,
-            normal: 1.5rem,
+            small: '1.25rem',
+            normal: '1.5rem',
         }
     },
     medium: {
@@ -33,8 +33,8 @@ const sizeTheme = {
             large: 16,
         },
         font: {
-            small: 1rem,
-            normal: 1.25rem,
+            small: '1rem',
+            normal: '1.25rem',
         }
     },
     large: {
@@ -45,8 +45,8 @@ const sizeTheme = {
             large: 12,
         },
         font: {
-            small: .8125rem,
-            normal: 1rem,
+            small: '.8125rem',
+            normal: '1rem',
         }
     }
 };
@@ -68,5 +68,6 @@ const ReactComponent = (props) => {
         </ThemeProvider>
     )
 }
+
  
  ```
