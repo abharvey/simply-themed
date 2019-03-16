@@ -10,3 +10,63 @@ css classes while writing CSS-in-JS. I wanted to maintain that readability while
 responsive design system. Using similar techniques to the template literal processing to generate the classes in SC & Emotion I 
 decided to use a JSON structure to define the system of responsive CSS allowing a developer to only understand their own Theme
 definition and standard CSS-in-JS without extra mental mapping of array variable short hands used in other responsive libraries
+
+```
+const sizeTheme = {
+    small: {
+        break: { max: 1024 },
+        spacing: {
+            small: 8,
+            medium: 16,
+            large: 20,
+        },
+        font: {
+            small: 1.25rem,
+            normal: 1.5rem,
+        }
+    },
+    medium: {
+        break: { min: 1023, max: 1366 },
+        spacing: {
+            small: 8,
+            medium: 12,
+            large: 16,
+        },
+        font: {
+            small: 1rem,
+            normal: 1.25rem,
+        }
+    },
+    large: {
+        break: { min: 1367 },
+        spacing: {
+            small: 8,
+            medium: 10,
+            large: 12,
+        },
+        font: {
+            small: .8125rem,
+            normal: 1rem,
+        }
+    }
+};
+
+const StyledDiv = styled.div`
+    ${theme`
+        padding: ${spacing.small}px ${spacing.medium}px;
+        margin: ${spacing.large}px ${spacing.extraLarge}px;
+        font-size: ${font.normal};
+    `}
+`;
+
+const ReactComponent = (props) => {
+    return (
+        <ThemeProvider>
+            <StyledDiv>
+                {props.children}
+            </StyledDiv>
+        </ThemeProvider>
+    )
+}
+ 
+ ```
