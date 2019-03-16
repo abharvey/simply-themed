@@ -11,7 +11,7 @@ responsive design system. Using similar techniques to the template literal proce
 decided to use a JSON structure to define the system of responsive CSS allowing a developer to only understand their own Theme
 definition and standard CSS-in-JS without extra mental mapping of array variable short hands used in other responsive libraries
 
-```
+```javascript
 const sizeTheme = {
     small: {
         break: { max: 1024 },
