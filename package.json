@@ -1,10 +1,11 @@
 {
   "name": "styled-breakpoints",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Using a theme object to auto build theme functions across breakpoints",
   "main": "./index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel src --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/abharvey/styled-breakpoints#readme",
   "devDependencies": {
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.2",
