@@ -2,7 +2,7 @@
   "name": "styled-breakpoints",
   "version": "1.0.1",
   "description": "Using a theme object to auto build theme functions across breakpoints",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir dist --copy-files"
