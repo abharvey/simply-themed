@@ -1,14 +1,14 @@
 /**
  * usage:
- * 
+ *
  * const breaks = {
  *    small: { max: 1024 },
  *    medium: { min: 1023, max: 1366 },
  *    large: { min: 1367 }
  *};
- * 
+ *
  * const mediaQueries = mediaQueryMixin(breaks);
- * 
+ *
  * const StyledDiv = styled.div`
  *      ${mediaQueries.small`
  *          width: 100%;
@@ -17,14 +17,13 @@
  *          width: 75%;
  *      `}
  * `;
- * 
+ *
  */
 
-// TODO: Work on the naming
 // TODO: clean up string duplication
 const buildQuery = ({ min, max }) => {
     if (min && max) {
-        return `@media all and (max-width: ${max}px) and (min-width: ${min}px)`
+        return `@media all and (max-width: ${max}px) and (min-width: ${min}px)`;
     }
 
     if (max) {
@@ -38,15 +37,16 @@ const buildQuery = ({ min, max }) => {
     return '';
 };
 
-const buildQueryFunction = (cssFunc) => ({ min, max }) => (...args) => cssFunc`
+const buildQueryFunction = cssFunc => ({ min, max }) => (...args) => cssFunc`
     ${buildQuery({ min, max })} {
         ${cssFunc(...args)}
     }
 `;
 
-const mediaQueryMixin = (cssFunc) => (breakpointObject) => Object.keys(breakpointObject).reduce((mixin, bp) => {
-    mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
-    return mixin;
-}, {});
+const mediaQueryMixin = cssFunc => breakpointObject =>
+    Object.keys(breakpointObject).reduce((mixin, bp) => {
+        mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
+        return mixin;
+    }, {});
 
 export default mediaQueryMixin;
