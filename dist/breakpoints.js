@@ -1,12 +1,14 @@
-'use strict';
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    ", " {\n        ", "\n    }\n"]);
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+  _templateObject = function _templateObject() {
+    return data;
+  };
 
-var _templateObject = _taggedTemplateLiteral(['\n    ', ' {\n        ', '\n    }\n'], ['\n    ', ' {\n        ', '\n    }\n']);
+  return data;
+}
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 /**
  * usage:
@@ -29,45 +31,47 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
  * `;
  * 
  */
-
 // TODO: Work on the naming
 // TODO: clean up string duplication
 var buildQuery = function buildQuery(_ref) {
-    var min = _ref.min,
-        max = _ref.max;
+  var min = _ref.min,
+      max = _ref.max;
 
-    if (min && max) {
-        return '@media all and (max-width: ' + max + 'px) and (min-width: ' + min + 'px)';
-    }
+  if (min && max) {
+    return "@media all and (max-width: ".concat(max, "px) and (min-width: ").concat(min, "px)");
+  }
 
-    if (max) {
-        return '@media (max-width: ' + max + 'px)';
-    }
+  if (max) {
+    return "@media (max-width: ".concat(max, "px)");
+  }
 
-    if (min) {
-        return '@media (min-width: ' + min + 'px)';
-    }
+  if (min) {
+    return "@media (min-width: ".concat(min, "px)");
+  }
 
-    return '';
+  return '';
 };
 
 var buildQueryFunction = function buildQueryFunction(cssFunc) {
-    return function (_ref2) {
-        var min = _ref2.min,
-            max = _ref2.max;
-        return function () {
-            return cssFunc(_templateObject, buildQuery({ min: min, max: max }), cssFunc.apply(undefined, arguments));
-        };
+  return function (_ref2) {
+    var min = _ref2.min,
+        max = _ref2.max;
+    return function () {
+      return cssFunc(_templateObject(), buildQuery({
+        min: min,
+        max: max
+      }), cssFunc.apply(void 0, arguments));
     };
+  };
 };
 
 var mediaQueryMixin = function mediaQueryMixin(cssFunc) {
-    return function (breakpointObject) {
-        return Object.keys(breakpointObject).reduce(function (mixin, bp) {
-            mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
-            return mixin;
-        }, {});
-    };
+  return function (breakpointObject) {
+    return Object.keys(breakpointObject).reduce(function (mixin, bp) {
+      mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
+      return mixin;
+    }, {});
+  };
 };
 
-exports.default = mediaQueryMixin;
+export default mediaQueryMixin;
