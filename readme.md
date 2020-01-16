@@ -1,4 +1,6 @@
-#themed-breakpoints
+#theme-responsively
+
+Code Responsibly, Theme Responsively.
 
 I built this out of dissatisfaction with other responsive design styled libraries.
 
