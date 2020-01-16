@@ -1,6 +1,5 @@
-#theme-responsively
 
-Code Responsibly, Theme Responsively.
+## Code Responsibly, Theme Responsively.
 
 I built this out of dissatisfaction with other responsive design styled libraries.
 
