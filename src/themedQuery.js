@@ -50,7 +50,7 @@
  *      }
  *  };
  *
- * const sizing = themedBreaks(sizeTheme);
+ * const theme = themedQuery(cssFunction)(sizeTheme);
  *
  * const StyledDiv = styled.div`
  *      ${theme`
@@ -90,6 +90,9 @@ const buildBreakPointThemeMap = (theme, subThemeKey, cssArgs) => {
 
 // SubTheme reduction should be done in another function at the same time
 //  as the theme size reduction
+// TODO: maybe auto create the subtheme functions by deriving keys
+// With intent to use destructuring or dot notation
+// const { spacing, font } = themed(css)(theme);
 
 export default cssFunc => (theme, subThemeKey) => (cssStrings, ...cssArgs) => {
     // create the breakpoint media queries from the theme (pull out the break object)
