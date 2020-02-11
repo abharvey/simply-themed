@@ -1,3 +1,10 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n    ", " {\n        ", "\n    }\n"]);
 
@@ -12,15 +19,15 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 /**
  * usage:
- * 
+ *
  * const breaks = {
  *    small: { max: 1024 },
  *    medium: { min: 1023, max: 1366 },
  *    large: { min: 1367 }
  *};
- * 
+ *
  * const mediaQueries = mediaQueryMixin(breaks);
- * 
+ *
  * const StyledDiv = styled.div`
  *      ${mediaQueries.small`
  *          width: 100%;
@@ -29,10 +36,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
  *          width: 75%;
  *      `}
  * `;
- * 
+ *
  */
-// TODO: Work on the naming
-// TODO: clean up string duplication
+// TODO: clean up string duplication?
 var buildQuery = function buildQuery(_ref) {
   var min = _ref.min,
       max = _ref.max;
@@ -74,4 +80,5 @@ var mediaQueryMixin = function mediaQueryMixin(cssFunc) {
   };
 };
 
-export default mediaQueryMixin;
+var _default = mediaQueryMixin;
+exports["default"] = _default;

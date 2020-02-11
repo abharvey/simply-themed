@@ -1,3 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _breakpoints = _interopRequireDefault(require("./breakpoints"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 function _templateObject3() {
   var data = _taggedTemplateLiteral(["", ""]);
 
@@ -30,71 +41,6 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-/**
- * usage:
- * 
- * 
- *  const sizeTheme = {
- *      small: {
- *         break: { max: 1024 },
- *         spacing: {
- *              extraSmall: 4,
- *              small: 8,
- *              medium: 16,
- *              large: 20,
- *              extraLarge: 24
- *         },
- *          font: {
- *              small: 1.25rem,
- *              normal: 1.5rem,
- *              strong: 2rem,
- *          }
- *      },
- *      medium: {
- *          break: { min: 1023, max: 1366 },
- *          spacing: {
- *               extraSmall: 4,
- *               small: 8,
- *               medium: 12,
- *               large: 16,
- *               extraLarge: 20
- *          },
- *          font: {
- *              small: 1rem,
- *              normal: 1.25rem,
- *              strong: 1.5rem,
- *          }
- *      },
- *      large: {
- *          break: { min: 1367 },
- *          spacing: {
- *              extraSmall: 4,
- *              small: 8,
- *              medium: 10,
- *              large: 12,
- *              extraLarge: 16
- *          },
- *          font: {
- *              small: .8125rem,
- *              normal: 1rem,
- *              strong: 1.25rem,
- *          }
- *      }
- *  };
- * 
- * const sizing = themedBreaks(sizeTheme);
- * 
- * const StyledDiv = styled.div`
- *      ${theme`
- *          padding: ${spacing.small}px ${spacing.medium}px;
- *          margin: ${spacing.large}px ${spacing.extraLarge}px;
- *          font-size: ${font.normal};
- *      `}
- * `;
- * 
- */
-import mediaQueryMixin from './breakpoints'; // TODO: work on the naming
-
 var weaveCSS = function weaveCSS(cssStrings, cssArgs) {
   var result = [cssStrings[0]];
 
@@ -122,15 +68,18 @@ var buildBreakPointThemeMap = function buildBreakPointThemeMap(theme, subThemeKe
   }, {});
 }; // SubTheme reduction should be done in another function at the same time
 //  as the theme size reduction
+// TODO: maybe auto create the subtheme functions by deriving keys
+// With intent to use destructuring or dot notation
+// const { spacing, font } = themed(css)(theme);
 
 
-export default (function (cssFunc) {
+var _default = function _default(cssFunc) {
   return function (theme, subThemeKey) {
     return function (cssStrings) {
-      // create the breakpoint media queries from the theme (pull out the break object)    
+      // create the breakpoint media queries from the theme (pull out the break object)
       // format should be theme = { key: { break: { min, max } } }
       var themeSizes = Object.keys(theme);
-      var breakpoints = mediaQueryMixin(cssFunc)(themeSizes.reduce(function (bpm, sizeKey) {
+      var breakpoints = (0, _breakpoints["default"])(cssFunc)(themeSizes.reduce(function (bpm, sizeKey) {
         bpm[sizeKey] = theme[sizeKey]["break"];
         return bpm; //{ small: {max}, medium: {min, max}, large: {min}}}
       }, {})); //{ small: func, medium: func, large: func}
@@ -147,4 +96,6 @@ export default (function (cssFunc) {
       return cssFunc(_templateObject3(), css);
     };
   };
-});
+};
+
+exports["default"] = _default;
