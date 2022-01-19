@@ -1,41 +1,41 @@
 {
-  "name": "styled-breakpoints",
-  "version": "1.0.1",
-  "description": "Using a theme object to auto build theme functions across breakpoints",
-  "main": "./dist/index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "babel src --out-dir dist --copy-files"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abharvey/styled-breakpoints.git"
-  },
-  "author": "Alex Harvey <packages@alexharvey.tech>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/abharvey/styled-breakpoints/issues"
-  },
-  "homepage": "https://github.com/abharvey/styled-breakpoints#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "@babel/preset-react": "^7.16.7",
-    "babel-jest": "^24.9.0",
-    "emotion": "^9.2.12",
-    "jest": "^24.9.0",
-    "jest-emotion": "^9.2.11",
-    "jest-styled-components": "^6.3.4",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-emotion": "^9.2.12",
-    "react-test-renderer": "^16.14.0",
-    "styled-components": "^4.4.1"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+    "name": "styled-breakpoints",
+    "version": "1.0.1",
+    "description": "Using a theme object to auto build theme functions across breakpoints",
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "jest *.test.*",
+        "build": "babel src --out-dir dist --copy-files"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abharvey/styled-breakpoints.git"
+    },
+    "author": "Alex Harvey <packages@alexharvey.tech>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/abharvey/styled-breakpoints/issues"
+    },
+    "homepage": "https://github.com/abharvey/styled-breakpoints#readme",
+    "devDependencies": {
+        "@babel/cli": "^7.16.8",
+        "@babel/core": "^7.16.7",
+        "@babel/preset-env": "^7.16.8",
+        "@babel/preset-react": "^7.16.7",
+        "babel-jest": "^24.9.0",
+        "emotion": "^9.2.12",
+        "jest": "^24.9.0",
+        "jest-emotion": "^9.2.11",
+        "jest-styled-components": "^7.0.8",
+        "react": "^16.14.0",
+        "react-dom": "^16.14.0",
+        "react-emotion": "^9.2.12",
+        "react-test-renderer": "^16.14.0",
+        "styled-components": "^5.3.3"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.jsx?$": "babel-jest"
+        }
     }
-  }
 }

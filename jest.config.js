@@ -1,4 +1,5 @@
 module.exports = {
-  clearMocks: true,
-  coverageDirectory: "coverage"
+    clearMocks: true,
+    coverageDirectory: 'coverage',
+    testMatch: ['**/*.test.js'],
 };
