@@ -4,7 +4,7 @@
     "description": "Using a theme object to auto build theme functions across breakpoints",
     "main": "./dist/index.js",
     "scripts": {
-        "test": "jest *.test.*",
+        "test": "jest",
         "build": "babel src --out-dir dist --copy-files"
     },
     "repository": {
