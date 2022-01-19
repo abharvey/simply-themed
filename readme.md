@@ -11,6 +11,10 @@ responsive design system. Using similar techniques to the template literal proce
 decided to use a JSON structure to define the system of responsive CSS allowing a developer to only understand their own Theme
 definition and standard CSS-in-JS without extra mental mapping of array variable short hands used in other responsive libraries
 
+### Example:
+
+In the example below there are strings used for selecting subsets of the theme. It's recommended that you use a enum when working at scale for better application maintainability.
+
 ```javascript
 import React from 'react';
 import { css } from 'styled-components';
@@ -87,7 +91,7 @@ const ResponsiveButton = styled.button`
     `}
 `;
 
-const MyThemeProvider = props => <ThemeProvider {...props} theme={myTheme} />;
+const MyThemeProvider = (props) => <ThemeProvider {...props} theme={myTheme} />;
 
 const App = () => (
     <MyThemeProvider>

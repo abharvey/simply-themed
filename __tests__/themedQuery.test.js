@@ -1,11 +1,9 @@
-import * as emotion from 'emotion';
-import { createSerializer, getStyles } from 'jest-emotion';
+import * as emotion from '@emotion/css';
+import { createSerializer, getStyles } from '@emotion/jest';
 import 'jest-styled-components';
-import eStyled, { css as eCSS } from 'react-emotion';
+import eStyled from '@emotion/styled';
 import renderer from 'react-test-renderer';
 import scStyled, { css as scCSS } from 'styled-components';
-
-// expect.extend(createMatchers(emotion));
 
 import { cleanCSS } from './testUtils';
 import themedQuery from '../src/themedQuery';
@@ -132,7 +130,7 @@ describe('Themed Media Query Function works with emotion', () => {
 
     let spacingQueries;
     beforeEach(() => {
-        spacingQueries = themedQuery(eCSS)(theme, 'spacing');
+        spacingQueries = themedQuery(emotion.css)(theme, 'spacing');
     });
 
     it('should create a query function', () => {

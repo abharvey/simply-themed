@@ -22,20 +22,16 @@
         "@babel/core": "^7.16.7",
         "@babel/preset-env": "^7.16.8",
         "@babel/preset-react": "^7.16.7",
+        "@emotion/css": "^11.7.1",
+        "@emotion/jest": "^11.7.1",
+        "@emotion/react": "^11.7.1",
+        "@emotion/styled": "^11.6.0",
         "babel-jest": "^27.4.6",
-        "emotion": "^11.0.0",
         "jest": "^27.4.7",
-        "jest-emotion": "^11.0.0",
         "jest-styled-components": "^7.0.8",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-emotion": "^10.0.0",
         "react-test-renderer": "^17.0.2",
         "styled-components": "^5.3.3"
-    },
-    "jest": {
-        "transform": {
-            "^.+\\.jsx?$": "babel-jest"
-        }
     }
 }
