@@ -1,5 +1,5 @@
 import * as emotion from '@emotion/css';
-import { createSerializer, getStyles } from '@emotion/jest';
+import { createSerializer, getStyleElements } from '@emotion/jest';
 import 'jest-styled-components';
 import eStyled from '@emotion/styled';
 import renderer from 'react-test-renderer';
@@ -138,15 +138,17 @@ describe('Themed Media Query Function works with emotion', () => {
     });
 
     it('should work to create a css class with emotion', () => {
+        const React = require('react');
+
         const mediaQueries = spacingQueries`
                 padding: ${'extraSmall'}px ${'large'}px;
                 margin: ${'small'}px ${'extraLarge'}px;
                 width: calc(${'large'}px * 2);
             `;
 
-        const mq = cleanCSS(mediaQueries);
+        const tree = renderer.create(<div className={mediaQueries} />).toJSON();
 
-        expect(getStyles(emotion)).toMatchSnapshot();
+        expect(tree).toMatchSnapshot();
     });
 
     it('should work to create a react component with emotion components', () => {

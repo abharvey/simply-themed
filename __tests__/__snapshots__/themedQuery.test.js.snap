@@ -24,7 +24,35 @@ exports[`Themed Media Query Function with styled-components should work to creat
 />
 `;
 
-exports[`Themed Media Query Function works with emotion should work to create a css class with emotion 1`] = `".css-hcw3g8{padding:4px 20px;margin:8px 24px;width:calc(20px * 2);}@media (max-width:1024px){.css-1h251yx{padding:4px 20px;margin:8px 24px;width:calc(20px * 2);}}.css-1h1kxvq{padding:4px 16px;margin:8px 20px;width:calc(16px * 2);}@media all and (max-width:1366px) and (min-width:1023px){.css-1glhxsy{padding:4px 16px;margin:8px 20px;width:calc(16px * 2);}}.css-1lkvvyw{padding:4px 12px;margin:8px 16px;width:calc(12px * 2);}@media (min-width:1367px){.css-1kmhy8h{padding:4px 12px;margin:8px 16px;width:calc(12px * 2);}}@media (max-width:1024px){.css-rdocqf{padding:4px 20px;margin:8px 24px;width:calc(20px * 2);}}@media all and (max-width:1366px) and (min-width:1023px){.css-rdocqf{padding:4px 16px;margin:8px 20px;width:calc(16px * 2);}}@media (min-width:1367px){.css-rdocqf{padding:4px 12px;margin:8px 16px;width:calc(12px * 2);}}"`;
+exports[`Themed Media Query Function works with emotion should work to create a css class with emotion 1`] = `
+@media (max-width: 1024px) {
+  .emotion-0 {
+    padding: 4px 20px;
+    margin: 8px 24px;
+    width: calc(20px * 2);
+  }
+}
+
+@media all and (max-width: 1366px) and (min-width: 1023px) {
+  .emotion-0 {
+    padding: 4px 16px;
+    margin: 8px 20px;
+    width: calc(16px * 2);
+  }
+}
+
+@media (min-width: 1367px) {
+  .emotion-0 {
+    padding: 4px 12px;
+    margin: 8px 16px;
+    width: calc(12px * 2);
+  }
+}
+
+<div
+  className="emotion-0"
+/>
+`;
 
 exports[`Themed Media Query Function works with emotion should work to create a react component with emotion components 1`] = `
 <div
