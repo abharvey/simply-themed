@@ -1,23 +1,59 @@
 {
-    "name": "styled-breakpoints",
-    "version": "1.0.1",
+    "version": "0.1.0",
     "description": "Using a theme object to auto build theme functions across breakpoints",
-    "main": "./dist/index.js",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=10"
+    },
     "scripts": {
-        "test": "jest",
-        "build": "babel src --out-dir dist --copy-files"
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test",
+        "lint": "tsdx lint",
+        "prepare": "tsdx build",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abharvey/styled-breakpoints.git"
+        "url": "git+https://github.com/abharvey/simply-themed.git"
     },
-    "author": "Alex Harvey <packages@alexharvey.tech>",
-    "license": "MIT",
+    "peerDependencies": {},
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
+    },
+    "name": "simply-themed",
+    "author": "Alex Harvey",
     "bugs": {
-        "url": "https://github.com/abharvey/styled-breakpoints/issues"
+        "url": "https://github.com/abharvey/simply-themed/issues"
     },
-    "homepage": "https://github.com/abharvey/styled-breakpoints#readme",
+    "homepage": "https://github.com/abharvey/simply-themed#readme",
+    "module": "dist/simply-themed.esm.js",
+    "size-limit": [
+        {
+            "path": "dist/simply-themed.cjs.production.min.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/simply-themed.esm.js",
+            "limit": "10 KB"
+        }
+    ],
     "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.5",
+        "husky": "^7.0.4",
+        "size-limit": "^7.0.5",
+        "tsdx": "^0.14.1",
+        "tslib": "^2.3.1",
+        "typescript": "^4.5.5",
         "@babel/cli": "^7.16.8",
         "@babel/core": "^7.16.7",
         "@babel/preset-env": "^7.16.8",
@@ -26,8 +62,6 @@
         "@emotion/jest": "^11.7.1",
         "@emotion/react": "^11.7.1",
         "@emotion/styled": "^11.6.0",
-        "babel-jest": "^27.4.6",
-        "jest": "^27.4.7",
         "jest-styled-components": "^7.0.8",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

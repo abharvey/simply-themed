@@ -2,3 +2,5 @@ node_modules
 dist
 coverage
 .vscode
+*.log
+.DS_Store
