@@ -1,3 +1,5 @@
+type CSSFunc = any; //BaseThemedCssFunction<any>;
+
 /**
  * usage:
  *
@@ -20,8 +22,13 @@
  *
  */
 
+interface BreakpointQuery {
+    min: string;
+    max: string;
+}
+
 // TODO: clean up string duplication?
-const buildQuery = ({ min, max }) => {
+const buildQuery = ({ min, max }: BreakpointQuery) => {
     if (min && max) {
         return `@media all and (max-width: ${max}px) and (min-width: ${min}px)`;
     }
@@ -37,14 +44,21 @@ const buildQuery = ({ min, max }) => {
     return '';
 };
 
-const buildQueryFunction = cssFunc => ({ min, max }) => (...args) => cssFunc`
+const buildQueryFunction = (cssFunc: CSSFunc) => ({ min, max }: BreakpointQuery) => (
+    args: string[]
+) => cssFunc`
     ${buildQuery({ min, max })} {
-        ${cssFunc(...args)}
+        ${cssFunc`${args}`}
     }
 `;
 
-const mediaQueryMixin = cssFunc => breakpointObject =>
-    Object.keys(breakpointObject).reduce((mixin, bp) => {
+/**
+ *  cssFunc is the css function provided by styled-components or emotion
+ * to generate css classes
+ * TODO: Type css function properly from library types
+ */
+const mediaQueryMixin = (cssFunc: CSSFunc) => (breakpointObject: any) =>
+    Object.keys(breakpointObject).reduce((mixin: { [key: string]: any }, bp: string) => {
         mixin[bp] = buildQueryFunction(cssFunc)(breakpointObject[bp]);
         return mixin;
     }, {});
