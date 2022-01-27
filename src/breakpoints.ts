@@ -1,4 +1,4 @@
-type CSSFunc = any; //BaseThemedCssFunction<any>;
+export type CSSFunc = any; //BaseThemedCssFunction<any>;
 
 /**
  * usage:

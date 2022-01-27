@@ -1,12 +1,12 @@
 import * as emotion from '@emotion/css';
-import { createSerializer, getStyleElements } from '@emotion/jest';
+import { createSerializer } from '@emotion/jest';
 import 'jest-styled-components';
 import eStyled from '@emotion/styled';
 import renderer from 'react-test-renderer';
 import scStyled, { css as scCSS } from 'styled-components';
 
 import { cleanCSS } from './testUtils';
-import themedQuery from '../src/themedQuery';
+import themedQuery from '../themedQuery';
 
 const theme = {
     small: {
@@ -57,7 +57,7 @@ const theme = {
 };
 
 describe('Themed Media Query Function with styled-components', () => {
-    let spacingQueries;
+    let spacingQueries: any;
     beforeEach(() => {
         spacingQueries = themedQuery(scCSS)(theme, 'spacing');
     });
@@ -126,9 +126,9 @@ describe('Themed Media Query Function with styled-components', () => {
 });
 
 describe('Themed Media Query Function works with emotion', () => {
-    expect.addSnapshotSerializer(createSerializer(emotion));
+    expect.addSnapshotSerializer(createSerializer());
 
-    let spacingQueries;
+    let spacingQueries: any;
     beforeEach(() => {
         spacingQueries = themedQuery(emotion.css)(theme, 'spacing');
     });

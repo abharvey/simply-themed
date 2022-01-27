@@ -1,5 +1,3 @@
-type CSSFunc = any; //BaseThemedCssFunction<any>;
-
 /**
  * usage:
  *
@@ -64,7 +62,7 @@ type CSSFunc = any; //BaseThemedCssFunction<any>;
  *
  */
 
-import mediaQueryMixin from './breakpoints';
+import mediaQueryMixin, { CSSFunc } from './breakpoints';
 
 const weaveCSS = (cssStrings: string[], cssArgs: string[]): string => {
     const result = [cssStrings[0]];
@@ -76,9 +74,9 @@ const weaveCSS = (cssStrings: string[], cssArgs: string[]): string => {
     return result.reduce((str, arg) => `${str}${arg}`, '');
 };
 
-type SubSystem = { [key: string]: string };
-type SubTheme = { [key: string]: SubSystem };
-type Theme = { [key: string]: SubTheme };
+export type SubSystem = { [key: string]: string | number };
+export type SubTheme = { [key: string]: SubSystem };
+export type Theme = { [key: string]: SubTheme };
 
 const buildBreakPointThemeMap = (theme: Theme, subThemeKey: string, cssArgs: string[]) => {
     const themeSizes = Object.keys(theme);
@@ -100,7 +98,7 @@ const buildBreakPointThemeMap = (theme: Theme, subThemeKey: string, cssArgs: str
 // With intent to use destructuring or dot notation
 // const { spacing, font } = themed(css)(theme);
 
-export default (cssFunc: CSSFunc) => (theme: Theme, subThemeKey: string) => (
+export default (cssFunc: CSSFunc): any => (theme: Theme, subThemeKey: string) => (
     cssStrings: string[],
     ...cssArgs: string[]
 ) => {

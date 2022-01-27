@@ -1,4 +1,4 @@
-export const cleanCSS = (cssString) => {
+export const cleanCSS = (cssString: any) => {
     const normalized = cssString
         .trim()
         .replace(/\s+{/g, '{')
@@ -8,4 +8,4 @@ export const cleanCSS = (cssString) => {
         .replace(/\s+/g, ' ');
 
     return normalized;
-}
+};
