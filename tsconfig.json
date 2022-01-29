@@ -1,0 +1,25 @@
+{
+    "include": ["src", "types"],
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "esnext",
+        "lib": ["dom", "esnext"],
+        "types": ["node", "jest"],
+        "importHelpers": true,
+        "declaration": true,
+        "sourceMap": true,
+        "rootDir": "./src",
+        "strict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "moduleResolution": "node",
+        "jsx": "react",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true
+    },
+    "exclude": ["**/*.test.*", "**/__mocks__/*", "**/__tests__/*"]
+}

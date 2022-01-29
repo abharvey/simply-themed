@@ -62,9 +62,9 @@
  *
  */
 
-import mediaQueryMixin from './breakpoints';
+import mediaQueryMixin, { CSSFunc } from './breakpoints';
 
-const weaveCSS = (cssStrings, cssArgs) => {
+const weaveCSS = (cssStrings: string[], cssArgs: string[]): string => {
     const result = [cssStrings[0]];
 
     for (let i = 0, len = cssArgs.length; i < len; i += 1) {
@@ -74,16 +74,20 @@ const weaveCSS = (cssStrings, cssArgs) => {
     return result.reduce((str, arg) => `${str}${arg}`, '');
 };
 
-const buildBreakPointThemeMap = (theme, subThemeKey, cssArgs) => {
+export type SubSystem = { [key: string]: string | number };
+export type SubTheme = { [key: string]: SubSystem };
+export type Theme = { [key: string]: SubTheme };
+
+const buildBreakPointThemeMap = (theme: Theme, subThemeKey: string, cssArgs: string[]) => {
     const themeSizes = Object.keys(theme);
 
-    const subTheme = themeSizes.reduce((subThemeMap, sizeKey) => {
+    const subTheme = themeSizes.reduce((subThemeMap: SubTheme, sizeKey) => {
         subThemeMap[sizeKey] = theme[sizeKey][subThemeKey];
-        return subThemeMap; //{ small: {'spacing': { small, medium, large } }}
+        return subThemeMap; // ie: { small: {'spacing': { small, medium, large } }}
     }, {});
 
-    return themeSizes.reduce((breakPointSizeMap, size) => {
-        breakPointSizeMap[size] = cssArgs.map(cssArg => subTheme[size][cssArg]);
+    return themeSizes.reduce((breakPointSizeMap: any, size) => {
+        breakPointSizeMap[size] = cssArgs.map((cssArg: string) => subTheme[size][cssArg]);
         return breakPointSizeMap;
     }, {});
 };
@@ -94,13 +98,16 @@ const buildBreakPointThemeMap = (theme, subThemeKey, cssArgs) => {
 // With intent to use destructuring or dot notation
 // const { spacing, font } = themed(css)(theme);
 
-export default cssFunc => (theme, subThemeKey) => (cssStrings, ...cssArgs) => {
+export default (cssFunc: CSSFunc): any => (theme: Theme, subThemeKey: string) => (
+    cssStrings: string[],
+    ...cssArgs: string[]
+) => {
     // create the breakpoint media queries from the theme (pull out the break object)
     // format should be theme = { key: { break: { min, max } } }
     const themeSizes = Object.keys(theme);
 
     const breakpoints = mediaQueryMixin(cssFunc)(
-        themeSizes.reduce((bpm, sizeKey) => {
+        themeSizes.reduce((bpm: any, sizeKey) => {
             bpm[sizeKey] = theme[sizeKey].break;
             return bpm; //{ small: {max}, medium: {min, max}, large: {min}}}
         }, {})

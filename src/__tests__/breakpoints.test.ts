@@ -1,10 +1,11 @@
-import mediaQueryMixin from '../src/breakpoints';
+import mediaQueryMixin from '../breakpoints';
 import { css } from 'styled-components';
 
 import { cleanCSS } from './testUtils';
 
 describe('mediaQueryMixin works with styled-components', () => {
-    let breakPoints, mediaQueries;
+    let breakPoints: any;
+    let mediaQueries: any;
 
     beforeEach(() => {
         breakPoints = {

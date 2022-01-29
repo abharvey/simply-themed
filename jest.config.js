@@ -1,9 +1,7 @@
 module.exports = {
     clearMocks: true,
     coverageDirectory: 'coverage',
-    testMatch: ['**/*.test.js'],
-    transform: {
-        '^.+\\.jsx?$': 'babel-jest',
-    },
+    preset: 'ts-jest',
+    testMatch: ['**/*.test.ts|tsx'],
     testEnvironment: 'jsdom',
 };
